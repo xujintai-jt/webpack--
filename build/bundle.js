@@ -69,7 +69,7 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index_json__ = __webpack_require__(1);
+/* WEBPACK VAR INJECTION */(function(__dirname) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index_json__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__index_json__);
 
 
@@ -81,9 +81,10 @@ function fn(...arr) {
 fn(6, 5, 4, 3, 2, 1);
 
 console.log(__WEBPACK_IMPORTED_MODULE_0__index_json___default.a);
+console.log(__dirname);
+// webpack ./index.js  ../build/bundle.js
 
-// webpack ./src/index.js  ./build/bundle.js
-
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, "/"))
 
 /***/ }),
 /* 1 */
