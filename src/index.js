@@ -1,3 +1,5 @@
+// 引入样式资源
+import './index.css'
 import json from "./index.json";
 
 function fn(...arr) {

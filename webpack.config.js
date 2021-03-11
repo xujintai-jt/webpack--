@@ -1,3 +1,22 @@
-//resolve用来拼接绝对路径的方法
-const { resolve } = require('path')
-console.log('webpack',__dirname);
+// commonjs
+const { resolve } = require("path");
+
+module.exports = {
+  entry: "./src/index.js",
+  output: {
+    path: resolve(__dirname, "dist"),
+    filename: "bundle.js",
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+        ],
+      },
+    ],
+  },
+  mode: "development"
+};
