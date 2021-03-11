@@ -78,7 +78,7 @@ function fn(...arr) {
   console.log(res);
 }
 
-fn(3, 2, 1);
+fn(6, 5, 4, 3, 2, 1);
 
 console.log(__WEBPACK_IMPORTED_MODULE_0__index_json___default.a);
 

@@ -5,8 +5,8 @@ function fn(...arr) {
   console.log(res);
 }
 
-fn(3, 2, 1);
+fn(6, 5, 4, 3, 2, 1);
 
 console.log(json);
 
-// webpack ./src/index.js  ./build/bundle.js
+// webpack ./index.js  ../build/bundle.js
