@@ -1,5 +1,7 @@
 // commonjs
+//引入核心模块
 const { resolve } = require("path");
+//引入插件(第三方插件)
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // commonjs
@@ -39,7 +41,7 @@ module.exports = {
     //自动引入打包输出所有的资源
     new HtmlWebpackPlugin(
       {
-        //复制本地src/index.html文件，引入打包输出所有的资源
+        //复制本地src/index.html文件(不需要自己引入打包资源)，引入打包输出所有的资源
         template:resolve(__dirname,'src/index.html')
     }
     )],
