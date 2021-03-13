@@ -1,0 +1,7 @@
+header #title {
+  height: 500px;
+  background-color: pink;
+}
+header #title h1 {
+  color: blueviolet;
+}

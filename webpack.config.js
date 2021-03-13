@@ -2,10 +2,10 @@
 //引入核心模块
 const { resolve } = require("path");
 //引入插件(第三方插件)
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 // commonjs
-// const exports = module.exports 
+// const exports = module.exports
 module.exports = {
   //样式资源也在index.js(入口文件)中
   entry: "./src/index.js",
@@ -39,11 +39,10 @@ module.exports = {
   },
   plugins: [
     //自动引入打包输出所有的资源
-    new HtmlWebpackPlugin(
-      {
-        //复制本地src/index.html文件(不需要自己引入打包资源)，引入打包输出所有的资源
-        template:resolve(__dirname,'src/index.html')
-    }
-    )],
+    new HtmlWebpackPlugin({
+      //复制本地src/index.html文件(不需要自己引入打包资源)，引入打包输出所有的资源
+      template: resolve("./src/index.html"),
+    }),
+  ],
   mode: "development",
 };
