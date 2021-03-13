@@ -1,6 +1,7 @@
 // 引入样式资源
 import './index.css'
 import '../global.css'
+import './index.less'
 import json from "./index.json";
 
 function fn(...arr) {
