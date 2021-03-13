@@ -1,6 +1,9 @@
 // commonjs
 const { resolve } = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+// commonjs
+// const exports = module.exports 
 module.exports = {
   //样式资源也在index.js(入口文件)中
   entry: "./src/index.js",
@@ -24,18 +27,21 @@ module.exports = {
       {
         test: /\.less$/,
         use: [
-          {
-            loader: "style-loader", // creates style nodes from JS strings
-          },
-          {
-            loader: "css-loader", // translates CSS into CommonJS
-          },
-          {
-            loader: "less-loader", // compiles Less to CSS
-          },
+          "style-loader", // creates style nodes from JS strings
+          "css-loader", // translates CSS into CommonJS
+          //将less文件编译成css文件
+          "less-loader", // compiles Less to CSS
         ],
-      }
+      },
     ],
   },
+  plugins: [
+    //自动引入打包输出所有的资源
+    new HtmlWebpackPlugin(
+      {
+        //复制本地src/index.html文件，引入打包输出所有的资源
+        template:resolve(__dirname,'src/index.html')
+    }
+    )],
   mode: "development",
 };
