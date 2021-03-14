@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+#father {
+  display: flex;
+  height: 100vh;
+  justify-content: space-around;
+  align-items: center;
+}
+#father span {
+  height: 200px;
+  width: 200px;
+  background-color: pink;
+}
+#father .icon-biaoqing {
+  align-self: flex-start;
+}
+#father .icon-dianpu {
+  align-self: flex-end;
+}
