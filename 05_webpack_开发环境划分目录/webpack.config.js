@@ -5,7 +5,7 @@ module.exports = {
   mode: "development",
   entry: resolve(__dirname, "src/index.js"),
   output: {
-    filename: "bundle.js",
+    filename: "js/bundle.js",
     path: resolve(__dirname, "dist"),
   },
   module: {
@@ -16,7 +16,7 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: ["style-loader", "css-loader","less-loader"],
+        use: ["style-loader", "css-loader", "less-loader"],
       },
       {
         // test: /\.(woff|svg|eot|ttf)\??.*$/,
@@ -25,6 +25,7 @@ module.exports = {
         loader: "file-loader",
         options: {
           name: "[hash:10].[ext]",
+          outputPath:'media'
         },
       },
     ],
