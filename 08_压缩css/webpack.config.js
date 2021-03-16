@@ -1,7 +1,9 @@
 const { resolve } = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+//js文件中抽取单独的css文件
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-
+//压缩css文件
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -23,13 +25,15 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "css/built.css",
     }),
+    new HtmlWebpackPlugin({
+      filename:'main.html',
+      template: resolve(__dirname, "src/index.html"), //本地自定义模板
+    }),
   ],
   optimization: {
     //这将仅在生产模式下实现 CSS 优化。如果你想运行它也在开发中设置选项。optimization.minimizetrue
     minimize: true,
     minimizer: [
-      // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
-      // `...`,
       new CssMinimizerPlugin(),
     ],
   },

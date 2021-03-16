@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 //提取js中的css成单独文件的插件
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-// 设置nodejs环境变量
+// 设置nodejs环境变量为开发环境，默认是生产环境
 process.env.NODE_ENV = "development";
 
 //common js写法
