@@ -29,6 +29,7 @@ module.exports = {
               importLoaders: 1,
             }
           },
+          //解决css兼容性问题
           {
             loader: 'postcss-loader'
           }
