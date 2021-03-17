@@ -24,22 +24,26 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.less$/,
-        use: ["style-loader", "css-loader", "less-loader"],
-      },
-      {
-        // test: /\.(woff|svg|eot|ttf)\??.*$/,
-        // 排除css|js|html|less以外的文件
-        exclude: /\.(css|js|html|less|jpg|png|gif|JPG)$/,
-        loader: "file-loader",
-        options: {
-          name: "[hash:10].[ext]",
-        },
-      },
+        oneOf: [
+          {
+            test: /\.css$/,
+            use: ["style-loader", "css-loader"],
+          },
+          {
+            test: /\.less$/,
+            use: ["style-loader", "css-loader", "less-loader"],
+          },
+          {
+            // test: /\.(woff|svg|eot|ttf)\??.*$/,
+            // 排除css|js|html|less以外的文件
+            exclude: /\.(css|js|html|less|jpg|png|gif|JPG)$/,
+            loader: "file-loader",
+            options: {
+              name: "[hash:10].[ext]",
+            },
+          },
+      ]
+    }
     ],
   },
   plugins: [
