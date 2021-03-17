@@ -1,16 +1,16 @@
-const { resolve } = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { resolve } = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode:'development',
-  entry: resolve(__dirname,'src/js/index.js'),
+  mode: "development",
+  entry: resolve(__dirname, "src/js/index.js"),
   output: {
-    path:resolve(__dirname , 'build') ,
-    filename: 'js/build.js'
+    path: resolve(__dirname, "build"),
+    filename: "js/build.js",
   },
   module: {
     rules: [
-       /**
+      /**
         js兼容性处理：babel-loader  @babel/preset-env  @babel/core
             1. 基本兼容性处理 --> @babel/preset-env
                 问题：只能转换基本语法，如promise不能转换
@@ -22,21 +22,36 @@ module.exports = {
         test: /\.m?js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
+            //预设：指示babel做哪些兼容性处理
             presets: [
-              ['@babel/preset-env', { targets: "defaults" }]
-            ]
-          }
-        }
-      }
-    ]
+              [
+                "@babel/preset-env",
+                {
+                  useBuiltIns: "usage",
+                  corejs: {
+                    version: 3,
+                  },
+                  targets: {
+                    chrome: "60",
+                    firefox: "60",
+                    ie: "9",
+                    safari: "10",
+                    edge: "17",
+                  },
+                },
+              ],
+            ],
+          },
+        },
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename:'main.html',
-      template:resolve(__dirname,'src/index.html')
-    })
-  ]
-  
-}
+      filename: "main.html",
+      template: resolve(__dirname, "src/index.html"),
+    }),
+  ],
+};
