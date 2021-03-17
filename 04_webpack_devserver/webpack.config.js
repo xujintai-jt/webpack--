@@ -47,5 +47,7 @@ module.exports = {
     open:true,
     //以上配置告知 webpack-dev-server，在 localhost:3000 下建立服务，
     //将 dist 目录下的文件，作为可访问文件。
-  }
+  },
+  //原因：webpack5增加browserslist配置对象，解决：webpack devServer可以自动编译但不能刷新浏览器
+  target: 'web'
 };

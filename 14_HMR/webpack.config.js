@@ -1,11 +1,24 @@
-const { resolve,join } = require("path");
+/*
+  HMR: hot module replacement 热模块替换 / 模块热替换
+    作用：一个模块发生变化，只会重新打包这一个模块（而不是打包所有模块） 
+      极大提升构建速度
+      
+      样式文件：可以使用HMR功能：因为style-loader内部实现了~
+      js文件：默认不能使用HMR功能 --> 需要修改js代码，添加支持HMR功能的代码
+        注意：HMR功能对js的处理，只能处理非入口js文件的其他文件。
+      html文件: 默认不能使用HMR功能.同时会导致问题：html文件不能热更新了~ （不用做HMR功能）
+        解决：修改entry入口，将html文件引入
+*/
+
+const { resolve, join } = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  entry: resolve(__dirname, "src/js/index.js"),
+  entry: resolve(__dirname, "src/index.js"),
+  // entry: ['./src/index.js', './src/index.html'],
   output: {
-    filename: "js/bundle.js",
+    filename: "bundle.js",
     path: resolve(__dirname, "dist"),
   },
   module: {
@@ -25,7 +38,6 @@ module.exports = {
         loader: "file-loader",
         options: {
           name: "[hash:10].[ext]",
-          outputPath:'media'
         },
       },
     ],
@@ -44,11 +56,11 @@ module.exports = {
     contentBase: join(__dirname, "dist"),
     //启动gzip压缩
     compress: true,
-    port: 5000,
-    open:true,
-    //以上配置告知 webpack-dev-server，在 localhost:3000 下建立服务，
-    //将 dist 目录下的文件，作为可访问文件。
+    port: 3000,
+    open: true,
+    //以上配置告知 webpack-dev-server，在 localhost:3000 下建立服务。将 dist 目录下的文件，作为可访问文件。
+    //启用模块热替换()
+    hot: true,
   },
-   //解决webpack5 不能热更新的bug
-   target: 'web'
+  target: 'web'
 };
