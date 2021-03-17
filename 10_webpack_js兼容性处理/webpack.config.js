@@ -10,6 +10,14 @@ module.exports = {
   },
   module: {
     rules: [
+       /**
+        js兼容性处理：babel-loader  @babel/preset-env  @babel/core
+            1. 基本兼容性处理 --> @babel/preset-env
+                问题：只能转换基本语法，如promise不能转换
+            2. 全部js兼容性处理 -->引入 @babel/polyfill (在相应js文件中，import)
+                问题： 我只要解决部分的兼容性问题，但是将所有兼容性代码全部引入，体积太大
+            3. 按需加载：--> core-js （主要）
+      */
       {
         test: /\.m?js$/,
         exclude: /node_modules/,
