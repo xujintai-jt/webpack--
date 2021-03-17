@@ -29,7 +29,9 @@ module.exports = {
               [
                 "@babel/preset-env",
                 {
+                  //按需加载
                   useBuiltIns: "usage",
+                  //指定corejs版本
                   corejs: {
                     version: 3,
                   },
